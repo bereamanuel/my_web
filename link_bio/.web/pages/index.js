@@ -12,6 +12,16 @@ import NextHead from "next/head"
 
 
 
+export function Slider_3a86fcfd0ad336be2e0df930d6801726 () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+
+  const on_value_commit_adc5f4464c458bb3f4470d880c64be00 = useCallback((_e0) => addEvents([Event("state.slider_value.set_end", {value:_e0})], (_e0), {}), [addEvents, Event])
+
+  return (
+    <RadixThemesSlider css={{"width": "100%"}} defaultValue={[5]} max={10} min={0} name={`response`} onValueCommit={on_value_commit_adc5f4464c458bb3f4470d880c64be00}/>
+  )
+}
+
 export function Link_7795f22e8cf81d13c4314ab6e6bc4da5 () {
 
 
@@ -26,13 +36,17 @@ export function Link_7795f22e8cf81d13c4314ab6e6bc4da5 () {
   )
 }
 
-export function Slider_3a86fcfd0ad336be2e0df930d6801726 () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
+export function Link_e6c45e94e89381b44ebc24e17692d0e1 () {
 
-  const on_value_commit_adc5f4464c458bb3f4470d880c64be00 = useCallback((_e0) => addEvents([Event("state.slider_value.set_end", {value:_e0})], (_e0), {}), [addEvents, Event])
 
   return (
-    <RadixThemesSlider css={{"width": "100%"}} defaultValue={[5]} max={10} min={0} name={`response`} onValueCommit={on_value_commit_adc5f4464c458bb3f4470d880c64be00}/>
+    <RadixThemesLink asChild={true} target={isTrue(true) ? `_blank` : ``}>
+  <NextLink href={`https://www.linkedin.com/in/manuel-berea/`} passHref={true}>
+  <RadixThemesButton>
+  {`LinkedIn`}
+</RadixThemesButton>
+</NextLink>
+</RadixThemesLink>
   )
 }
 
@@ -44,39 +58,6 @@ export function Heading_56bcf49bb1c3853ee9d97d7a96c300fb () {
     <RadixThemesHeading>
   {state__slider_value.value}
 </RadixThemesHeading>
-  )
-}
-
-export function Root_eab801cc2f17355193bd6a66584de5a2 () {
-  
-    const handleSubmit_baf86c8b8a97bc4eeea84b336c2445b5 = useCallback((ev) => {
-        const $form = ev.target
-        ev.preventDefault()
-        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...{}}
-
-        addEvents([Event("state.form_state.handle_submit", {form_data:form_data})])
-
-        if (true) {
-            $form.reset()
-        }
-    })
-    
-  const [addEvents, connectError] = useContext(EventLoopContext);
-
-
-  return (
-    <RadixFormRoot className={`Root`} onSubmit={handleSubmit_baf86c8b8a97bc4eeea84b336c2445b5}>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <RadixThemesTextField.Input css={{"serverInvalid": true}} name={`email`} placeholder={`Email`}/>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <Heading_56bcf49bb1c3853ee9d97d7a96c300fb/>
-  <Slider_3a86fcfd0ad336be2e0df930d6801726/>
-</RadixThemesFlex>
-  <RadixThemesButton type={`submit`}>
-  {`Submit`}
-</RadixThemesButton>
-</RadixThemesFlex>
-</RadixFormRoot>
   )
 }
 
@@ -109,14 +90,47 @@ export function Fragment_1762bb90abdb81b879b2a22edbbe01a1 () {
   )
 }
 
-export function Link_e6c45e94e89381b44ebc24e17692d0e1 () {
+export function Root_556f5ffb229347359656fcc149843751 () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
+  
+    const handleSubmit_de0a81a2bf4b110a9e6ab9b0c2ed4e21 = useCallback((ev) => {
+        const $form = ev.target
+        ev.preventDefault()
+        const form_data = {...Object.fromEntries(new FormData($form).entries()), ...{}}
+
+        addEvents([Event("state.form_state.handle_submit", {form_data:form_data})])
+
+        if (true) {
+            $form.reset()
+        }
+    })
+    
+
+
+  return (
+    <RadixFormRoot className={`Root`} onSubmit={handleSubmit_de0a81a2bf4b110a9e6ab9b0c2ed4e21}>
+  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
+  <RadixThemesTextField.Input css={{"serverInvalid": true}} name={`email`} placeholder={`Email`}/>
+  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
+  <Heading_56bcf49bb1c3853ee9d97d7a96c300fb/>
+  <Slider_3a86fcfd0ad336be2e0df930d6801726/>
+</RadixThemesFlex>
+  <RadixThemesButton type={`submit`}>
+  {`Submit`}
+</RadixThemesButton>
+</RadixThemesFlex>
+</RadixFormRoot>
+  )
+}
+
+export function Link_cafb373b3da31341b20d3271702060f5 () {
 
 
   return (
     <RadixThemesLink asChild={true} target={isTrue(true) ? `_blank` : ``}>
-  <NextLink href={`https://www.linkedin.com/in/manuel-berea/`} passHref={true}>
+  <NextLink href={`https://www.kaggle.com/manuelbereaarellano`} passHref={true}>
   <RadixThemesButton>
-  {`LinkedIn`}
+  {`Kaggle`}
 </RadixThemesButton>
 </NextLink>
 </RadixThemesLink>
@@ -168,13 +182,14 @@ export default function Component() {
   <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
   <Link_e6c45e94e89381b44ebc24e17692d0e1/>
   <Link_7795f22e8cf81d13c4314ab6e6bc4da5/>
+  <Link_cafb373b3da31341b20d3271702060f5/>
 </RadixThemesFlex>
 </RadixThemesFlex>
   <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
   <RadixThemesText as={`p`}>
   {`How likely are you to recommend us on a scale from 0 to 10?`}
 </RadixThemesText>
-  <Root_eab801cc2f17355193bd6a66584de5a2/>
+  <Root_556f5ffb229347359656fcc149843751/>
 </RadixThemesFlex>
   <RadixThemesText as={`p`}>
   {`¡Durante 2024 llevamos 2 respuestas!`}

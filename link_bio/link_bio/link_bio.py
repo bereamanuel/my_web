@@ -1,5 +1,4 @@
 import reflex as rx
-from pymongo import MongoClient
 
 from link_bio.components.navbar import navbar
 from link_bio.components.footer import footer
