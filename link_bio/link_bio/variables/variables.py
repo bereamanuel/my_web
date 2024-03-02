@@ -13,4 +13,4 @@ URL = {
     "email" :"mailto:mbaberearellano@gmail.com"
 }
 
-MONGODBURI = os.environ["MONGODBURI"]
+MONGO_URI = os.environ["MONGODBURI"]
