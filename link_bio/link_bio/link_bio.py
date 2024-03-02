@@ -2,14 +2,13 @@ import reflex as rx
 
 from link_bio.components.navbar import navbar
 from link_bio.components.footer import footer
-from link_bio.api.nps import nps,db_client
+from link_bio.components.form_nps import form_nps
 
 from link_bio.views.header.header import header
 from link_bio.views.links.links import links
 
-from link_bio.api.schema.response import responses_schema
+import link_bio.styles.styles as styles
 
-import datetime as dt
 class State(rx.State):
     pass
 
@@ -17,17 +16,22 @@ class State(rx.State):
 def index() -> rx.Component:
     return rx.box(
         navbar(),
-        rx.vstack(
-            header(),
-            links()
+        rx.center(
+            rx.vstack(
+                header(),
+                links(),
+                form_nps(),
+                max_width=styles.MAX_WIDTH,
+                width="100%",
+                margin_left=styles.Size.BIG.value,
+                margin_right=styles.Size.BIG.value
+            ),
         ),
-        nps(),
-        rx.text(f"¡Durante {dt.datetime.now().year} llevamos {len(list(db_client.responses.find({"year":dt.datetime.now().year })))} respuestas!"),
         footer()
     )
 
 
-app = rx.App()
+app = rx.App(
+    style= styles.BASE_STYLE
+    )
 app.add_page(index)
-
-app.compile()

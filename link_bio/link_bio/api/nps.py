@@ -6,6 +6,8 @@ from pymongo import MongoClient
 from bson import ObjectId
 import datetime as dt
 
+from link_bio.components.title import title
+import link_bio.styles.styles as sytles
 db_client = MongoClient("mongodb+srv://admin:admin@cluster0.wscqaff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").test
 
 class FormState(rx.State):
@@ -25,35 +27,40 @@ class FormState(rx.State):
 
 class slider_value(rx.State):
     value:int
+    
     def set_end(self, value:int):
         self.value = value
 
 def nps():
     return rx.vstack(
-        rx.text("How likely are you to recommend us on a scale from 0 to 10?"),
-        rx.form(
-            rx.vstack(
-                rx.input(
-                    placeholder="Email",
-                    name="email",
-                    server_invalid = True
-                ),
+            title("How likely are you to recommend us on a scale from 0 to 10?"),
+            rx.form(
                 rx.vstack(
-                    rx.heading(slider_value.value),
+                    rx.heading(slider_value.value, size="4"),
                     rx.slider(
                     name="response",
                     default_value=5,
                     min=0,
                     max=10,
-                    on_value_commit=slider_value.set_end,
-                    )
+                    on_value_commit=slider_value.set_end
+                    ),
+                    rx.input(
+                        placeholder="Email",
+                        name="email",
+                        server_invalid = True
+                    ),
+                    rx.button("Submit", type="submit"),
+                    width="100%"
                 ),
-                rx.button("Submit", type="submit"),
+                on_submit=FormState.handle_submit,
+                reset_on_submit=True
             ),
-            on_submit=FormState.handle_submit,
-            reset_on_submit=True,
+            width = "100%",
+            border = "1px solid",
+            border_radius = sytles.Size.BIG.value,
+            padding = sytles.Size.DEFAULT.value
         )
-    )
+        
 
 def search_response(field:str, key):
     try:
