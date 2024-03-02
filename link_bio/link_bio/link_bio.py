@@ -5,21 +5,22 @@ from link_bio.components.footer import footer
 from link_bio.components.form_nps import form_nps
 
 from link_bio.views.header.header import header
-from link_bio.views.links.links import links
 
 import link_bio.styles.styles as styles
 
 class State(rx.State):
-    pass
+    @rx.var
+    def current_url(self) -> str:
+        return self.router.page.full_raw_path
+    
 
-
+@rx.page(route="/", title="BereaManuel")
 def index() -> rx.Component:
     return rx.box(
         navbar(),
         rx.center(
             rx.vstack(
                 header(),
-                links(),
                 form_nps(),
                 max_width=styles.MAX_WIDTH,
                 width="100%",

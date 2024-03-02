@@ -8,7 +8,10 @@ import datetime as dt
 
 from link_bio.components.title import title
 import link_bio.styles.styles as sytles
-db_client = MongoClient("mongodb+srv://admin:admin@cluster0.wscqaff.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0").test
+
+import link_bio.variables.variables as variables
+
+db_client = MongoClient(variables.MONGODBURI).test
 
 class FormState(rx.State):
     form_data: dict = {}
@@ -49,7 +52,8 @@ def nps():
                         name="email",
                         server_invalid = True
                     ),
-                    rx.button("Submit", type="submit"),
+                    rx.button("Submit", 
+                              type="submit"),
                     width="100%"
                 ),
                 on_submit=FormState.handle_submit,

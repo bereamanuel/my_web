@@ -3,11 +3,12 @@ import datetime
 
 import link_bio.styles.styles as styles
 
+import link_bio.variables.variables as variables
+
 def footer() -> rx.Component:
-    return rx.center(
-                rx.link(f"© 2021-{datetime.date.today().year} BEREAMANUEL BY MANUEL BEREA.", href="https://google.com", is_external=True, size="2"),
+    return rx.hstack(
+                rx.link(f"© 2021-{variables.YEAR} BEREAMANUEL BY MANUEL BEREA.", href="https://google.com", is_external=True, size="2"),
                 rx.text("Data Analyst.", size="2"),
-                text_align = "center",
                 width = "100%",
-                margin = styles.Size.DEFAULT.value
+                padding = styles.Size.DEFAULT.value
         )

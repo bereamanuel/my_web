@@ -1,22 +1,28 @@
 import reflex as rx
 import link_bio.styles.styles as styles
+from  link_bio.components.page_button import page_button
 
 def navbar() -> rx.Component:
-    return rx.hstack(
+    return rx.flex(
                 rx.text(
                     "Manuel Berea",
-                    size="6",
                     font_size=styles.Size.BIG.value,
-                    height ="40px",
-                    width = "100%"
                 ),
-                rx.hstack(rx.text("Home"),
-                          rx.text("My bio"),
-                          rx.text("Projects"),
-                          rx.text("Contact"),
-                          width = "100%"),
+                rx.spacer(),
+                rx.hstack(
+                    page_button(text = "Home", url=""),
+                    rx.divider(orientation="vertical"),
+                    page_button(text = "Biography", url=""),
+                    rx.divider(orientation="vertical"),
+                    page_button(text = "Projects", url=""),
+                    rx.divider(orientation="vertical"),
+                    page_button(text = "Contact", url=""),
+
+                ),
                 width = "100%",
                 position="sticky",
                 padding=styles.Size.DEFAULT.value,
-                z_index="999"
+                z_index="999",
+                top ="0",
+                bg="white"
             )

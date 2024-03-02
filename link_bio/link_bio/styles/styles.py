@@ -30,13 +30,18 @@ BASE_STYLE = {
         },
         rx.slider : {
             "width" : "100%"
+        },
+        rx.text :{
+            "width" : "100%"
+        },
+        rx.input :{
+            "width" : "100%"
         }
 }
 
 title_sytle = dict(
     size = "6",
-    width = "100%",
-    padding_top = Size.DEFAULT.value
+    width = "100%"
 )
 
 button_title_style = dict(

@@ -4,75 +4,17 @@
 import { Fragment, useCallback, useContext } from "react"
 import { EventLoopContext, StateContexts } from "/utils/context"
 import { Event, getBackendURL, getRefValue, getRefValues, isTrue } from "/utils/state"
-import { Box as RadixThemesBox, Button as RadixThemesButton, Dialog as RadixThemesDialog, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Link as RadixThemesLink, Slider as RadixThemesSlider, Text as RadixThemesText, TextField as RadixThemesTextField } from "@radix-ui/themes"
+import { Avatar as RadixThemesAvatar, Box as RadixThemesBox, Button as RadixThemesButton, Dialog as RadixThemesDialog, Flex as RadixThemesFlex, Heading as RadixThemesHeading, Link as RadixThemesLink, Separator as RadixThemesSeparator, Slider as RadixThemesSlider, Strong as RadixThemesStrong, Text as RadixThemesText, TextField as RadixThemesTextField } from "@radix-ui/themes"
 import env from "/env.json"
 import NextLink from "next/link"
-import { ArrowRightIcon as LucideArrowRightIcon } from "lucide-react"
+import { GithubIcon as LucideGithubIcon, LinkedinIcon as LucideLinkedinIcon, MailIcon as LucideMailIcon } from "lucide-react"
 import { Root as RadixFormRoot } from "@radix-ui/react-form"
 import NextHead from "next/head"
 
 
 
-export function Link_01845a9070e1e57a5111c43d9b668c48 () {
-
-
-  return (
-    <RadixThemesLink asChild={true} css={{"width": "100%", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
-  <NextLink href={`mbaberearellano@gmail.com`} passHref={true}>
-  <RadixThemesButton css={{"width": "100%", "height": "100%", "display": "block", "padding": "0.5em", "borderRadius": "2em"}}>
-  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
-  <LucideArrowRightIcon css={{"color": "var(--current-color)", "width": "2em", "heigth": "2em"}}/>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <RadixThemesText as={`p`} css={{"fontSize": "1em"}}>
-  {`email`}
-</RadixThemesText>
-  <RadixThemesText as={`p`} css={{"fontSize": "0.8em"}}>
-  {``}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixThemesButton>
-</NextLink>
-</RadixThemesLink>
-  )
-}
-
-export function Heading_d2ea26b6abbda389f6514117935bc96c () {
-  const state__slider_value = useContext(StateContexts.state__slider_value)
-
-
-  return (
-    <RadixThemesHeading size={`4`}>
-  {state__slider_value.value}
-</RadixThemesHeading>
-  )
-}
-
-export function Link_582a9327f86491264e9bb9441d9d3042 () {
-
-
-  return (
-    <RadixThemesLink asChild={true} css={{"width": "100%", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
-  <NextLink href={`https://www.kaggle.com/manuelbereaarellano`} passHref={true}>
-  <RadixThemesButton css={{"width": "100%", "height": "100%", "display": "block", "padding": "0.5em", "borderRadius": "2em"}}>
-  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
-  <LucideArrowRightIcon css={{"color": "var(--current-color)", "width": "2em", "heigth": "2em"}}/>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <RadixThemesText as={`p`} css={{"fontSize": "1em"}}>
-  {`Kaggle`}
-</RadixThemesText>
-  <RadixThemesText as={`p`} css={{"fontSize": "0.8em"}}>
-  {``}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixThemesButton>
-</NextLink>
-</RadixThemesLink>
-  )
-}
-
 export function Root_8e91d0fe7f4b68201280e71313006d61 () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
   
     const handleSubmit_e4137891ba745d7b8ddbb402f4ab163d = useCallback((ev) => {
         const $form = ev.target
@@ -86,7 +28,6 @@ export function Root_8e91d0fe7f4b68201280e71313006d61 () {
         }
     })
     
-  const [addEvents, connectError] = useContext(EventLoopContext);
 
 
   return (
@@ -103,32 +44,26 @@ export function Root_8e91d0fe7f4b68201280e71313006d61 () {
   )
 }
 
-export function Fragment_1762bb90abdb81b879b2a22edbbe01a1 () {
-  const [addEvents, connectError] = useContext(EventLoopContext);
+export function Link_cad99a9c5ffb952dd078f0b793876f3b () {
 
 
   return (
-    <Fragment>
-  {isTrue(connectError !== null) ? (
-  <Fragment>
-  <RadixThemesDialog.Root open={connectError !== null}>
-  <RadixThemesDialog.Content>
-  <RadixThemesDialog.Title>
-  {`Connection Error`}
-</RadixThemesDialog.Title>
-  <RadixThemesText as={`p`}>
-  {`Cannot connect to server: `}
-  {(connectError !== null) ? connectError.message : ''}
-  {`. Check if server is reachable at `}
-  {getBackendURL(env.EVENT).href}
-</RadixThemesText>
-</RadixThemesDialog.Content>
-</RadixThemesDialog.Root>
-</Fragment>
-) : (
-  <Fragment/>
-)}
-</Fragment>
+    <RadixThemesLink asChild={true} css={{"width": "100%", "paddingLeft": "0.5em", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
+  <NextLink href={`https://www.kaggle.com/manuelbereaarellano`} passHref={true}>
+  <RadixThemesAvatar size={`2`} src={`/kaggle.ico`}/>
+</NextLink>
+</RadixThemesLink>
+  )
+}
+
+export function Heading_d2ea26b6abbda389f6514117935bc96c () {
+  const state__slider_value = useContext(StateContexts.state__slider_value)
+
+
+  return (
+    <RadixThemesHeading size={`4`}>
+  {state__slider_value.value}
+</RadixThemesHeading>
   )
 }
 
@@ -154,49 +89,66 @@ export function Link_c313e03dd911252d9d87036b399ff7af () {
   )
 }
 
-export function Link_2a304cbd83220833670be3fa5c98b46a () {
+export function Link_07d481a323bf7514964808ce62c06acf () {
 
 
   return (
-    <RadixThemesLink asChild={true} css={{"width": "100%", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
-  <NextLink href={`https://github.com/bereamanuel`} passHref={true}>
-  <RadixThemesButton css={{"width": "100%", "height": "100%", "display": "block", "padding": "0.5em", "borderRadius": "2em"}}>
-  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
-  <LucideArrowRightIcon css={{"color": "var(--current-color)", "width": "2em", "heigth": "2em"}}/>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <RadixThemesText as={`p`} css={{"fontSize": "1em"}}>
-  {`Github`}
-</RadixThemesText>
-  <RadixThemesText as={`p`} css={{"fontSize": "0.8em"}}>
-  {``}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixThemesButton>
+    <RadixThemesLink asChild={true} css={{"width": "100%", "paddingLeft": "0.5em", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
+  <NextLink href={`mailto:mbaberearellano@gmail.com`} passHref={true}>
+  <LucideMailIcon css={{"color": "black"}}/>
 </NextLink>
 </RadixThemesLink>
   )
 }
 
-export function Link_917a4e23eb89b81671f8aa6cf9717f44 () {
+export function Fragment_067eb4f542d192d350450e9682d4fc4a () {
+  const [addEvents, connectError] = useContext(EventLoopContext);
 
 
   return (
-    <RadixThemesLink asChild={true} css={{"width": "100%", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
+    <Fragment>
+  {isTrue(connectError !== null) ? (
+  <Fragment>
+  <RadixThemesDialog.Root open={connectError !== null}>
+  <RadixThemesDialog.Content>
+  <RadixThemesDialog.Title>
+  {`Connection Error`}
+</RadixThemesDialog.Title>
+  <RadixThemesText as={`p`} css={{"width": "100%"}}>
+  {`Cannot connect to server: `}
+  {(connectError !== null) ? connectError.message : ''}
+  {`. Check if server is reachable at `}
+  {getBackendURL(env.EVENT).href}
+</RadixThemesText>
+</RadixThemesDialog.Content>
+</RadixThemesDialog.Root>
+</Fragment>
+) : (
+  <Fragment/>
+)}
+</Fragment>
+  )
+}
+
+export function Link_d8e89129d1296914ce1f9713db8d01c3 () {
+
+
+  return (
+    <RadixThemesLink asChild={true} css={{"width": "100%", "paddingLeft": "0.5em", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
   <NextLink href={`https://www.linkedin.com/in/manuel-berea/`} passHref={true}>
-  <RadixThemesButton css={{"width": "100%", "height": "100%", "display": "block", "padding": "0.5em", "borderRadius": "2em"}}>
-  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
-  <LucideArrowRightIcon css={{"color": "var(--current-color)", "width": "2em", "heigth": "2em"}}/>
-  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
-  <RadixThemesText as={`p`} css={{"fontSize": "1em"}}>
-  {`LinkedIn`}
-</RadixThemesText>
-  <RadixThemesText as={`p`} css={{"fontSize": "0.8em"}}>
-  {``}
-</RadixThemesText>
-</RadixThemesFlex>
-</RadixThemesFlex>
-</RadixThemesButton>
+  <LucideLinkedinIcon css={{"color": "#1086CD"}}/>
+</NextLink>
+</RadixThemesLink>
+  )
+}
+
+export function Link_247d44cf838b76dc815ae019cffa3f19 () {
+
+
+  return (
+    <RadixThemesLink asChild={true} css={{"width": "100%", "paddingLeft": "0.5em", "textDecoration": "none", "&:hover": null}} target={isTrue(true) ? `_blank` : ``}>
+  <NextLink href={`https://github.com/bereamanuel`} passHref={true}>
+  <LucideGithubIcon css={{"color": "black"}}/>
 </NextLink>
 </RadixThemesLink>
   )
@@ -206,73 +158,79 @@ export default function Component() {
 
   return (
     <Fragment>
-  <Fragment_1762bb90abdb81b879b2a22edbbe01a1/>
+  <Fragment_067eb4f542d192d350450e9682d4fc4a/>
   <RadixThemesBox>
-  <RadixThemesFlex align={`start`} css={{"width": "100%", "position": "sticky", "padding": "1em", "zIndex": "999"}} direction={`row`} gap={`2`}>
-  <RadixThemesText as={`p`} css={{"fontSize": "2em", "height": "40px", "width": "100%"}} size={`6`}>
+  <RadixThemesFlex css={{"width": "100%", "position": "sticky", "padding": "1em", "zIndex": "999", "top": "0", "background": "white"}}>
+  <RadixThemesText as={`p`} css={{"fontSize": "2em", "width": "100%"}}>
   {`Manuel Berea`}
 </RadixThemesText>
-  <RadixThemesFlex align={`start`} css={{"width": "100%"}} direction={`row`} gap={`2`}>
-  <RadixThemesText as={`p`}>
+  <RadixThemesFlex css={{"flex": 1, "justifySelf": "stretch", "alignSelf": "stretch"}}/>
+  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
+  <RadixThemesButton css={{"padding": "1em", "width": "100%", "height": "100%", "display": "block", "borderRadius": "2em"}}>
   {`Home`}
-</RadixThemesText>
-  <RadixThemesText as={`p`}>
-  {`My bio`}
-</RadixThemesText>
-  <RadixThemesText as={`p`}>
+</RadixThemesButton>
+  <RadixThemesSeparator orientation={`vertical`} size={`4`}/>
+  <RadixThemesButton css={{"padding": "1em", "width": "100%", "height": "100%", "display": "block", "borderRadius": "2em"}}>
+  {`Biography`}
+</RadixThemesButton>
+  <RadixThemesSeparator orientation={`vertical`} size={`4`}/>
+  <RadixThemesButton css={{"padding": "1em", "width": "100%", "height": "100%", "display": "block", "borderRadius": "2em"}}>
   {`Projects`}
-</RadixThemesText>
-  <RadixThemesText as={`p`}>
+</RadixThemesButton>
+  <RadixThemesSeparator orientation={`vertical`} size={`4`}/>
+  <RadixThemesButton css={{"padding": "1em", "width": "100%", "height": "100%", "display": "block", "borderRadius": "2em"}}>
   {`Contact`}
-</RadixThemesText>
+</RadixThemesButton>
 </RadixThemesFlex>
 </RadixThemesFlex>
   <RadixThemesFlex css={{"display": "flex", "alignItems": "center", "justifyContent": "center"}}>
   <RadixThemesFlex align={`start`} css={{"maxWidth": "800px", "width": "100%", "marginLeft": "2em", "marginRight": "2em"}} direction={`column`} gap={`2`}>
-  <RadixThemesFlex css={{"display": "flex", "alignItems": "center", "justifyContent": "center"}}>
-  <RadixThemesFlex align={`center`} direction={`column`} gap={`2`}>
-  <img align={`center`} css={{"size": "5"}} src={`/images/me2.jpg`}/>
-  <RadixThemesText align={`center`} as={`p`}>
+  <RadixThemesFlex align={`start`} css={{"alignItems": "center"}} direction={`column`} gap={`2`}>
+  <RadixThemesFlex align={`start`} direction={`row`} gap={`2`}>
+  <img align={`center`} css={{"size": "5", "borderRadius": "2em"}} src={`/images/me2.jpg`}/>
+  <RadixThemesFlex align={`start`} direction={`column`} gap={`2`}>
+  <RadixThemesStrong css={{"align": "center", "paddingTop": "1em", "paddingLeft": "2em"}}>
   {`¡HOLA! SOY MANUEL BEREA`}
-</RadixThemesText>
-  <RadixThemesText align={`center`} as={`p`}>
+</RadixThemesStrong>
+  <RadixThemesFlex css={{"width": "100%", "paddingTop": "1em", "paddingLeft": "2em", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>
+  <RadixThemesFlex align={`center`} css={{"width": "100%"}} direction={`row`} gap={`2`}>
+  <Link_d8e89129d1296914ce1f9713db8d01c3/>
+  <Link_247d44cf838b76dc815ae019cffa3f19/>
+  <Link_cad99a9c5ffb952dd078f0b793876f3b/>
+  <Link_07d481a323bf7514964808ce62c06acf/>
+</RadixThemesFlex>
+</RadixThemesFlex>
+</RadixThemesFlex>
+</RadixThemesFlex>
+  <RadixThemesText as={`p`} css={{"width": "100%"}}>
   {`Soy analista de datos desde hace mas de 3 años. Actualmente trabajo como freelance Data Analyst.
                             Aquí puedes encontrar una muestra de mi trabajo.
                             ¡Bienvenid@!`}
 </RadixThemesText>
 </RadixThemesFlex>
-</RadixThemesFlex>
-  <RadixThemesFlex css={{"width": "100%", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>
-  <RadixThemesFlex align={`center`} css={{"width": "100%"}} direction={`row`} gap={`2`}>
-  <Link_917a4e23eb89b81671f8aa6cf9717f44/>
-  <Link_2a304cbd83220833670be3fa5c98b46a/>
-  <Link_582a9327f86491264e9bb9441d9d3042/>
-  <Link_01845a9070e1e57a5111c43d9b668c48/>
-</RadixThemesFlex>
-</RadixThemesFlex>
-  <RadixThemesFlex css={{"width": "100%", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>
+  <RadixThemesFlex align={`start`} css={{"width": "100%"}} direction={`column`} gap={`2`}>
   <RadixThemesFlex align={`start`} css={{"width": "100%", "border": "1px solid", "borderRadius": "2em", "padding": "1em"}} direction={`column`} gap={`2`}>
-  <RadixThemesHeading css={{"size": "6", "width": "100%", "paddingTop": "1em"}}>
+  <RadixThemesHeading css={{"size": "6", "width": "100%"}}>
   {`How likely are you to recommend us on a scale from 0 to 10?`}
 </RadixThemesHeading>
   <Root_8e91d0fe7f4b68201280e71313006d61/>
 </RadixThemesFlex>
-  <RadixThemesText align={`center`} as={`p`}>
+  <RadixThemesText align={`center`} as={`p`} css={{"width": "100%"}}>
   {`¡Durante 2024 llevamos 3 respuestas!`}
 </RadixThemesText>
 </RadixThemesFlex>
 </RadixThemesFlex>
 </RadixThemesFlex>
-  <RadixThemesFlex css={{"textAlign": "center", "width": "100%", "margin": "1em", "display": "flex", "alignItems": "center", "justifyContent": "center"}}>
+  <RadixThemesFlex align={`start`} css={{"width": "100%", "padding": "1em"}} direction={`row`} gap={`2`}>
   <Link_c313e03dd911252d9d87036b399ff7af/>
-  <RadixThemesText as={`p`} size={`2`}>
+  <RadixThemesText as={`p`} css={{"width": "100%"}} size={`2`}>
   {`Data Analyst.`}
 </RadixThemesText>
 </RadixThemesFlex>
 </RadixThemesBox>
   <NextHead>
   <title>
-  {`Reflex App`}
+  {`BereaManuel`}
 </title>
   <meta content={`A Reflex app.`} name={`description`}/>
   <meta content={`favicon.ico`} property={`og:image`}/>
