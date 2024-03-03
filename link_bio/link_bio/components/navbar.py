@@ -6,7 +6,7 @@ def navbar() -> rx.Component:
     return rx.flex(
                 rx.text(
                     "Manuel Berea",
-                    font_size=styles.Size.BIG.value,
+                    style=styles.navbar_title_style,
                 ),
                 rx.spacer(),
                 rx.hstack(

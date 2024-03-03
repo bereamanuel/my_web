@@ -10,8 +10,8 @@ from fastapi import HTTPException, status
 from link_bio.api.model.response import Response
 from link_bio.api.schema.response import response_schema
 
-from link_bio.components.title import title
 import link_bio.styles.styles as sytles
+from link_bio.styles.color import Color
 
 import link_bio.variables.variables as variables
 
@@ -50,47 +50,41 @@ class FormState(rx.State):
                 self.alert ="El correo no es válido." """
 
 
-
-class slider_value(rx.State):
-    value:int = 5
-    
-    def set_end(self, value:int):
-        self.value = value
-
 def nps():
     return rx.vstack(
-            title("¿Con que probabilidad del 0 al 10 recomendarías nuestros servicios?"),
+            rx.heading("¿Con que probabilidad del 0 al 10 recomendarías nuestros servicios?"),
             rx.form(
                 rx.vstack(
-                    rx.hstack(
-                        rx.slider(
-                            name="response",
-                            default_value=5,
-                            min=0,
-                            max=10,
-                            on_value_commit=slider_value.set_end,
-                            padding_top = sytles.Size.SMALL.value
-                        ),
-                        rx.heading(slider_value.value, 
-                                   size="4", 
-                                   width = "100%" ),
-                    padding_top = sytles.Size.DEFAULT.value,
-                    width = "100%"
+                    rx.radio(
+                        ["0","1", "2", "3", "4", "5","6","7","8","9","10"],
+                        name="response",
+                        direction="row",
+                        spacing="5",
+                        size="3",
+                        required=True,
+                        color_scheme = "gray",
+                        high_contrast = True,
+                        width="100%"
                     ),
-                    rx.center(
-                        rx.input(
-                            placeholder="Email",
-                            name="email",
-                            server_invalid = True
-                        )
+                    rx.input(
+                        placeholder="Email",
+                        name="email",
+                        type = "email",
+                        color_scheme = "gray",
+                        high_contrast = True,
+                        server_invalid = True,
+                        required=True,
+                        width="100%"
                     ),
-                    rx.button("Submit", 
-                              type="submit"),#,
-                              #on_click= rx.window_alert(Alert_form.alert)),
-                    width="100%"
+                    rx.button(
+                            "Submit", 
+                            type="submit",
+                            color_scheme="gray",
+                            high_contrast = True)
                 ),
                 on_submit=FormState.handle_submit,
-                reset_on_submit=True
+                reset_on_submit=True,
+                width = "100%"
             ),
             width = "100%",
             border = "1px solid",

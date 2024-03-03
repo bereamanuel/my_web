@@ -12,7 +12,7 @@ import NextHead from "next/head"
 
 
 
-export function Fragment_067eb4f542d192d350450e9682d4fc4a () {
+export function Fragment_73db36df38cdd793143ee630011ab6cc () {
   const [addEvents, connectError] = useContext(EventLoopContext);
 
 
@@ -25,7 +25,7 @@ export function Fragment_067eb4f542d192d350450e9682d4fc4a () {
   <RadixThemesDialog.Title>
   {`Connection Error`}
 </RadixThemesDialog.Title>
-  <RadixThemesText as={`p`} css={{"width": "100%"}}>
+  <RadixThemesText as={`p`} css={{"fontStyle": 300, "fontWeight": "normal"}}>
   {`Cannot connect to server: `}
   {(connectError !== null) ? connectError.message : ''}
   {`. Check if server is reachable at `}
@@ -46,7 +46,7 @@ export default function Component() {
 
   return (
     <Fragment>
-  <Fragment_067eb4f542d192d350450e9682d4fc4a/>
+  <Fragment_73db36df38cdd793143ee630011ab6cc/>
   <Fragment>
   {isTrue(routeNotFound) ? (
   <Fragment>
