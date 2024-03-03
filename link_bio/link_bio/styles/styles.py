@@ -1,7 +1,8 @@
 import reflex as rx
 from enum import Enum
 
-from link_bio.styles.color import Color
+from .color import Color
+from .font import Font
 
 # Constants
 MAX_WIDTH = "800px"
@@ -18,6 +19,7 @@ class Size(Enum):
 BASE_STYLE = {
     "background_color" : Color.BACKGROUND_PRIMARY.value,
     "color" : Color.PRIMARY.value,
+    "font_family" : Font.DEFAULT.value,
         rx.button: {
             "width" : "100%",
             "height" : "100%",
@@ -36,22 +38,27 @@ BASE_STYLE = {
             "_hover" : {
 
             }
+        },
+        rx.heading :{
+            "font_family" : Font.TITLE.value
         }
 }
 
 navbar_title_style = dict(
+    font_family = Font.LOGO.value,
     font_size = Size.LARGE.value
 )
-
 
 text_style = dict(
     font_size = Size.MEDIUM.value
 )
 
 button_title_style = dict(
+    font_family = Font.TITLE.value,
     font_size = Size.DEFAULT.value
 )
 
 button_body_style = dict(
+    font_family = Font.DEFAULT.value,
     font_size = Size.MEDIUM.value
 )

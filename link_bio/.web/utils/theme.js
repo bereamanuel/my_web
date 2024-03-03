@@ -1,1 +1,1 @@
-export default {"styles": {"global": {":root": {}, "body": {"backgroundColor": "#FFFFFF", "color": "#000000", "fontFamily": "IBM Plex Mono"}}}}
+export default {"styles": {"global": {":root": {}, "body": {"backgroundColor": "#FFFFFF", "color": "#000000", "fontFamily": "Poppins-Light"}}}}
